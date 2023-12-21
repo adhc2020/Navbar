@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-
-export default function Navbar(props) {
+import {BrowserRouter, Link} from "react-router-dom";
+import AboutTDC from './AboutTDC'
+import sub_Navbar from "./sub_Navbar";
+ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
   <div className="container-fluid">
@@ -11,22 +12,25 @@ export default function Navbar(props) {
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <nav className="flexbox justify-between items-center bg-gray-200 py-4 px-6">
+          <ul>
+            <li>Shop</li>
+            <li>
+              <a href="/shop/t-shirts">T-Shirts</a>
+              <a href="/shop/oversized-t-shirts">Oversized T-Shirts</a>
+              <a href="/shop/hoodies">Hoodies</a>
+            </li>
+          </ul>
+        </nav>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/">Home</a>
+          <a className="nav-link active" aria-current="page" href="/Home">Home</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/">{props.aboutUs}</a>
+          <a className="nav-link" href="./AboutTDC">AboutTDC</a>
         </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categories
-          </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="/">T-Shirts</a></li>
-            <li><a className="dropdown-item" href="/">Oversized T-Shirts</a></li>
-            <li><a className="dropdown-item" href="/">Hoodies</a></li>
-          </ul>
+        <li className="nav-item">
+          <a className="nav-link" href="./ContactForm">Contact</a>
         </li>
       </ul>
       <form className="d-flex" role="search">
@@ -36,5 +40,8 @@ export default function Navbar(props) {
     </div>
   </div>
 </nav>
-)
-}
+  )
+ }
+  
+
+export default Navbar;
